@@ -9,32 +9,32 @@ pipeline {
             }
         }
 
-        // 2. Install Dependencies: Download library yang dibutuhkan (dart pub get)
+        // 2. Install Dependencies: Menggunakan 'bat' karena berjalan di Windows
         stage('Install Dependencies') {
             steps {
                 echo '📦 Sedang mendownload library...'
-                sh 'dart pub get'
+                bat 'dart pub get'
             }
         }
 
-        // 3. Static Analysis: Cek typo, syntax error, atau aturan koding yang dilanggar
+        // 3. Static Analysis: Cek kualitas kode
         stage('Analyze Code') {
             steps {
                 echo '🔍 Mengecek kualitas kode (Linter)...'
-                sh 'dart analyze'
+                bat 'dart analyze'
             }
         }
 
-        // 4. Unit Test: Menjalankan semua file di folder /test
+        // 4. Unit Test: Menjalankan test di Windows
         stage('Run Unit Tests') {
             steps {
                 echo '🧪 Menjalankan Unit Test...'
-                sh 'dart test'
+                bat 'dart test'
             }
         }
     }
 
-    // Notifikasi hasil akhir di console Jenkins
+    // Notifikasi hasil akhir
     post {
         always {
             echo 'Selesai menjalankan pipeline.'
