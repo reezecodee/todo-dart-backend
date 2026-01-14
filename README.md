@@ -18,14 +18,17 @@ dart_backend_proper/
 │               ├── index.dart    # Handle GET all & POST
 │               └── [id].dart     # Handle GET one, PUT, DELETE
 │
-└── 🧠 CORE LOGIC (Lib)
-    ├── lib/
-    │   ├── database/        # Setup Koneksi (biar rapi)
-    │   │   └── db_connection.dart  # Class buat connect Postgres & Redis
-    │   │
-    │   ├── models/          # Bentuk Data (Class Dart)
-    │   │   └── todo_model.dart     # Definisi: id, title, completed
-    │   │
-    │   └── services/        # Logic Bisnis (CRUD sesungguhnya di sini)
-    │       └── todo_service.dart   # Isinya: getAll(), create(), update()...
+├── 🧠 CORE LOGIC (Lib)
+│   └── lib/
+│       ├── database/        # Setup Koneksi
+│       │   └── db_connection.dart
+│       ├── models/          # Bentuk Data
+│       │   └── todo_model.dart
+│       └── services/        # Logic Bisnis (CRUD)
+│           └── todo_service.dart
+│
+└── 🧪 TESTING LAYER
+    └── test/                # Folder Unit Test (Wajib Sejajar Lib)
+        └── routes/
+            └── index_test.dart  # File test yang tadi kita bikin "Hijau"
 ```
